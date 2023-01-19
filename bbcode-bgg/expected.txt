@@ -1,0 +1,32 @@
+I wrote a [url=https://pandoc.org/lua-filters.html]Pandoc filter[/url] for converting a variety of documents into Board Game Geek posts. It helps me because I prefer to use Markdown when I write and I’m tired of reformatting by hand when I’m ready to post to BAG. The filter can also help if you have content in one of the other [url=https://pandoc.org/index.html]input formats Pandoc accepts[/url], including HTML.
+
+To use the filter, first [url=https://pandoc.org/installing.html]install pandoc[/url], download the filter and then run:
+
+[c]
+pandoc -t bbcode-bgg.lua [FILES]
+[/c]
+
+[hr]
+
+Notes:
+
+[heading]One level of headers[/heading]
+
+BGG only supports a single level of header. So this will flatten any structure you might have.
+
+* [url=https://boardgamegeek.com/wiki/page/Forum_Formatting#toc13]Lists aren’t directly supported.[/url] I’m just faking them. I don’t like the way they look [url=https://boardgamegeek.com/thread/1004108/forum-formatting-example-simple-list-using-cc-tags]using code formatting[/url] so I don’t do that.
+
+1. Numbered lists aren’t supported either.
+2. But again, I can fake them.
+* Links are inserted as-is. Links to BGG items (such [url=https://boardgamegeek.com/boardgame/151022/baseball-highlights-2045]Baseball Highlights: 2025[/url]) can be generated with [url=https://boardgamegeek.com/wiki/page/Forum_Formatting#toc3]special BGG tags[/url], but that’s a little on the complicated side, so I don’t (yet?) support that.
+* Images can be external to BGG. The filter doesn’t use the special tags for images hosted on BGG.
+
+[img]https://jlericson.com/images/bh_marichal.jpg[/img]
+* I like footnotes, but BGG doesn’t support them. (Footnotes are included as parentheticals instead. This might not be what you want.) 
+* Obviously you can have [b]bold[/b], [i]italic[/i], [-]strikethrough[/-] and [u]underline[/u] if you need them. Some of those styles aren’t supported by all input formats, however.
+
+As I frequently say:
+
+[q]
+Quotations work, but you’ll need to add your own attribution to BGG content.
+[/q]
